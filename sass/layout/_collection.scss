@@ -1,0 +1,20 @@
+.l-collection-listing {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		float: left;
+		margin-right: 125px;
+		
+		&.limit-spacing {
+			margin-right: 0;
+		}
+	}
+}
+
+.l-collection-product {
+	width: 320px;
+	height: 370px;
+	margin-top: 20px;
+}

@@ -1,0 +1,49 @@
+<article class="product clearfix">
+  <header class="product-header clearfix">
+    <h1 class="product-title">{{ product.title }}</h1>
+    {% if collection %}
+        {% if collection.previous_product or collection.next_product %}
+            <div class="product-p-n-btns">
+                {% if collection.previous_product %}
+                    <a href="{{ collection.previous_product }}" class="product-prev ir">previous</a>
+                {% endif %}
+                {% if collection.next_product %}
+                    <a href="{{ collection.next_product }}" class="product-next ir">next</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
+  </header>
+  <section class="product-images">
+      <div class="product-image-holder">
+          <img src="{{ product.featured_image | product_img_url: 'large' }}" class="product-main-image" alt="{{ product.featured_image.alt }}">
+      </div>
+      <div class="product-thumbs">
+            {% for image in product.images %}
+                <a href="{{ image | product_img_url: 'large' }}" class="product-thmb-link">
+                    <img src="{{ image | product_img_url: 'compact' }}" class="product-thmb" alt="{{ image.alt }}">
+                </a>
+            {% endfor %}
+      </div>
+  </section>
+  <section class="product-details clearfix">
+      <div class="product-purchase-price clearfix">
+        {% if product.available %}
+            <form action="/cart/add" method="post" enctype="multipart/form-data">
+                <input type="hidden" id="{{ product.variants.first.id }}" name="id" value="{{ product.variants.first.id }}">
+                <input type="submit" name="add" id="add" class="add-to-cart" value="Add to cart">
+            </form>
+          <div class="product-price">
+            {{ product.price | money | remove: '.00' }}
+          </div>
+        {% else %}
+          <div class="product-sold">
+            sold
+          </div>
+        {% endif %}
+      </div>
+      <div class="product-description">
+          {{ product.description }}
+      </div>
+  </section>
+</article>

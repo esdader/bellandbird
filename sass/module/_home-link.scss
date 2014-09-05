@@ -1,0 +1,11 @@
+.home-link {
+	display: block;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin: 34px 0 38px 30px;
+	font-family: $alt-font-family;
+	
+	&.active {
+		color: #000;
+	}
+}

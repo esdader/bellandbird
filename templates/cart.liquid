@@ -1,0 +1,60 @@
+{% if cart.item_count > 0 %}
+  <header class="cart-header clearfix">
+    <h1 class="cart-title">
+      Please review your order
+    </h1>
+    <a href="/pages/shop" class="continue-shopping">&laquo; Continue shopping</a>
+  </header>
+
+  <form action="/cart" method="post">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th class="cart-head-img-title"></th>
+          <th class="cart-head-qty">Quantity</th>
+          <th class="cart-head-price">Price</th>
+          <th class="cart-head-remove">Remove</th>
+          <th class="cart-head-total">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart.items %}
+          <tr>
+            <td class="cart-img-title">
+              <a href="{{ item.product.url }}" class="cart-item-link">
+                <img src="{{ item.product.featured_image.src | product_img_url: 'small' }}" alt="{{ item.product.alt | escape }}">
+              </a>
+              <p>{{ item.product.title }}</p>
+            </td>
+            <td class="cart-qty">{{ item.quantity }}</td>
+            <td class="cart-price">{{ item.price | money | remove: '.00' }}</td>
+            <td class="cart-remove"><a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart-remove-btn">Remove</a></td>
+            <td class="cart-line-total">{{ item.line_price | money | remove: '.00' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="cart-total">
+      <h3>Total: {{ cart.total_price | money | remove: '.00' }}</h3>
+    </div>
+    <div class="checkout-update-btns">
+      <div class="update-btn">
+        <input type="submit" name="update" value="Update cart" />
+      </div>
+      <div class="checkout-btn">
+        <input type="submit" name="checkout" value="Check out" />  
+      </div>
+    </div>
+  
+  <div>
+    <p>Special instructions for seller</p>
+    <textarea name="note">{{ cart.note }}</textarea>
+  </div>
+</form>
+
+{% endif %}
+{% comment %}
+
+still need to add empty cart
+
+{% endcomment %}

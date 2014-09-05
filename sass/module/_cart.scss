@@ -1,0 +1,193 @@
+.cart-header {
+	padding-top: 18px;
+	margin-bottom: 40px;
+}
+
+.cart-title {
+	float: left;
+	margin: 0;
+	width: 300px;
+	color: #000;
+	font-size: 18px;
+	line-height: 18px;
+	font-family: $alt-font-family;
+	text-transform: uppercase;
+}
+
+.continue-shopping {
+	float: right;
+	width: 200px;
+	font-size: 12px;
+	line-height: 18px;
+	font-family: $alt-font-family;
+	text-align: right;
+	text-transform: uppercase;
+
+	&:hover {
+		color: #000;
+	}
+}
+
+.cart-table {
+	width: 100%;
+}
+
+.cart-table thead {
+	border-bottom: 1px solid $border-color;
+}
+
+.cart-table tr {
+	border-bottom: 1px solid $border-color;
+}
+.cart-table th {
+	padding-bottom: 6px;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	text-align: center;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 1.4;
+	font-style: italic;
+}
+
+.cart-head-img-title {
+	width: 309 / 675 * 100%;
+}
+
+.cart-head-qty {
+	width: 134 / 675 * 100%;
+}
+
+.cart-head-price {
+	width: 118 / 675 * 100%;
+}
+
+.cart-head-remove {
+	width: 138 / 675 * 100%;
+}
+
+.cart-head-total {
+	width: 58 / 675 * 100%;
+}
+
+
+.cart-img-title {
+	width: 309 / 675 * 100%;
+}
+
+
+.cart-table td {
+	vertical-align: middle;
+	text-align: center;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.cart-img-title {
+
+	text-align: left;
+
+	img {
+		float: left;
+		padding: 20px 20px 20px 0;
+	}
+
+	p {
+		margin-top: 54px;
+		font-size: 18px;
+		line-height: 1;
+		font-family: $alt-font-family;
+		text-align: left;
+		text-transform: uppercase;
+	}
+}
+.cart-qty {
+	width: 134 / 675 * 100%;
+}
+
+.cart-price {
+	width: 118 / 675 * 100%;
+}
+
+.cart-remove {
+	width: 138 / 675 * 100%;
+}
+
+.cart-remove-btn {
+	padding: 3px 8px;
+	background: $main-color;
+	border-radius: 5px;
+	font-size: 11px;
+	color: #fff;
+
+	&:hover {
+		background: #000;
+		color: #fff;
+	}
+}
+
+.cart-line-total {
+	width: 58 / 675 * 100%;
+}
+
+.cart-total {
+	float: right;
+	width: 385px;
+	text-align: right;
+	
+	h3 {
+		margin: 0;
+		color: #000;
+		font-size: 18px;
+		line-height: 2.5;
+		text-transform: uppercase;
+		border-bottom: 1px solid $border-color;
+	}
+}
+
+.checkout-update-btns {
+	clear: both;
+	float: right;
+	width: 385px;
+	border-bottom: 1px solid $border-color;
+}
+
+.checkout-update-btns input {
+	padding: 6px 18px;
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+	line-height: 1;
+	color: #fff;
+	font-family: $alt-font-family;
+	text-transform: uppercase;
+}
+
+.update-btn {
+	float: left;
+	width: 230px;
+	padding: 15px 0 15px 0;
+	text-align: right;
+
+}
+.update-btn input {
+	background: #d2cfcb;
+
+	&:hover {
+		background: #a5a098;
+	}
+}
+
+.checkout-btn {
+	float: right;
+	padding: 15px 0 15px 23px;
+	border-left: 1px solid $border-color;
+}
+
+.checkout-btn input {
+	background: #a5a098;
+
+	&:hover {
+		background: #d2cfcb;		
+	}
+}

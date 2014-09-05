@@ -1,0 +1,34 @@
+{% paginate collection.products by 8 %}
+{% if paginate.pages > 1 %}
+<div class="pagination">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+
+<ul class="l-collection-listing">
+  {% for product in collection.products %}
+    <li{% cycle '',  ' class="limit-spacing"', '',  ' class="limit-spacing"' %}>
+      <article class="l-collection-product">
+        <div class="collection-img">
+          <a href="{{ product.url | within: collection }}">
+            <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+          </a>
+        </div>
+        <div class="collection-desc clearfix">
+          <div class="collection-title">
+            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+          </div>
+          <div class="collection-price">
+            {% if product.available %}
+              <a href="{{ product.url | within: collection }}">{{ product.price | money | remove: '.00' }}</a>
+            {% else %}
+              Sold
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    </li>
+  {% endfor %}
+
+</ul>
+{% endpaginate %}

@@ -1,0 +1,40 @@
+{% if search.performed %}
+  {% paginate search.results by 8 %}
+  {% if paginate.pages > 1 %}
+  <div class="pagination">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+  {% if search.results_count == 0 %}  
+    <p class="search-msg">Your search for "{{ search.terms }}" did not yield any results.</p>              
+  {% else %}
+    <ul class="l-collection-listing">
+      {% for product in search.results %}
+        <li{% cycle '',  ' class="limit-spacing"', '',  ' class="limit-spacing"' %}>
+          <article class="l-collection-product">
+            <div class="collection-img">
+              <a href="{{ product.url | within: collection }}">
+                <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+              </a>
+            </div>
+            <div class="collection-desc clearfix">
+              <div class="collection-title">
+                <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+              </div>
+              <div class="collection-price">
+                {% if product.available %}
+                  <a href="{{ product.url | within: collection }}">{{ product.price | money | remove: '.00' }}</a>
+                {% else %}
+                  Sold
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% endpaginate %}
+{% else %}
+  <p class="search-msg">Looks like you ended up here without searching for anything or there was some kind of error. Please try again.</p>
+{% endif %}

@@ -1,0 +1,22 @@
+.shop-nav {
+	margin: 0;
+	padding: 0;
+
+	a {
+		font: normal normal normal 42px/56px $alt-font-family;
+
+		&:after {
+			display: inline-block;
+			vertical-align: middle;
+			content: ' ';
+			width: 32px;
+			height: 52px;
+			background: url(cat_arrows.png) no-repeat right 10px;
+
+		}
+
+		&:hover:after {
+			background-position: right -42px;
+		}
+	}
+}

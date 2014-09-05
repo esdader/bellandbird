@@ -1,0 +1,15 @@
+.pagination {
+	position: absolute;
+	right: 0;
+	top: -24px;
+	font-family: gergia;
+	font-size: 12px;
+
+	span {
+		margin-left: .5em;
+	}
+}
+
+.page.current {
+	color: #000;
+}

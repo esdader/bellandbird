@@ -1,0 +1,146 @@
+.product-header {
+	border-bottom: 1px solid $border-color;
+}
+
+.product-title {
+	float: left;
+	width: 675px;
+	margin: 0;
+	color: #000;
+	font-size: 18px;
+	line-height: 48px;
+	font-family: $alt-font-family;
+	text-transform: uppercase;
+}
+
+.product-p-n-btns {
+	float: right;
+	width: 84px;
+}
+
+.product-prev {
+	display: block;
+	float: left;
+	width: 42px;
+	height: 48px;
+	background: url(product_prev_btn.png) no-repeat center center;
+
+}
+
+.product-next {
+	display: inline-block;
+	float: left;
+	width: 42px;
+	height: 48px;
+	background: url(product_next_btn.png) no-repeat center center;
+}
+
+.product-images {
+	float: left;
+	width: 414px;
+}
+
+.product-image-holder {
+	width: 100%;
+	min-height: 400px;
+	padding: 1em 0;
+	border-bottom: 1px solid $border-color;
+	text-align: center;
+}
+
+.product-main-image {
+	max-width: 100%;
+	height: auto;
+}
+
+.product-thumbs {
+	padding-bottom: 24px;
+	border-bottom: 1px solid $border-color;
+}
+
+.product-thmb-link {
+	display: inline-block;
+	width: 130px;
+	height: 130px;
+	margin: 12px 8px 12px 0;
+	text-align: center;
+}
+
+.product-thmb-link:nth-child(3n+3) {
+	margin-right: 0;
+}
+
+.product-thmb {
+	max-width: 100%;
+	max-height: 130px;
+	height: auto;
+}
+
+.product-details {
+	float: right;
+	width: 320px;
+}
+
+.product-sold {
+	color: #000;
+	font-family: $alt-font-family;
+	font-size: 20px;
+	letter-spacing: 1px;
+	line-height: 28px;
+	text-align: center;
+}
+
+.product-purchase-price {
+	padding: 12px 0;
+	border-bottom: 1px solid $border-color;
+
+	form {
+		float: left;
+		width: 200px;
+	}
+}
+
+.add-to-cart {
+	padding: 7px 12px;
+	border: none;
+	border-radius: 3px;
+	background: #a5a098;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: $alt-font-family;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1;
+	letter-spacing: 1px;
+}
+
+.add-to-cart:hover {
+	background: #000;
+}
+
+.product-price {
+	float: right;
+	width: 120px;
+	color: #000;
+	// font-family: $alt-font-family;
+	font-family: $main-font-family;
+	font-size: 14px;
+	letter-spacing: 1px;
+	line-height: 28px;
+	text-align: right;
+}
+
+.product-description {
+	padding-top: 18px;
+	font-size: 12px;
+	line-height: 22 /  12 * 1;
+	
+	p {
+		margin: 18px 0;
+	}
+
+	p:first-child {
+		margin-top: 0;
+	}
+}
+

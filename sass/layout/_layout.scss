@@ -1,0 +1,67 @@
+.l-container {
+	width: $site-width;
+	margin: 0 auto;
+}
+
+.l-sidebar {
+	position: relative;
+	width: 225px;
+	float: left;
+	margin-right: 50px;
+	padding-bottom: 6em;
+}
+
+.l-main-section {
+	width: 765px;
+	float: left;
+}
+
+.l-main-header {
+	width: 100%;
+	height: 150px;
+	padding: 32px 0 0;
+	border-bottom: 1px solid $border-color;
+}
+
+.l-main-logo {
+	display: block;
+	margin: 0 auto;
+}
+
+.l-cart-link {
+	margin: 17px 0 0 10px
+}
+
+.l-main-nav {
+	width: 190px;
+	margin: 96px 0 0 18px;
+	padding: 23px 0 23px 10px;
+	border-top: 1px solid $border-color;
+	border-bottom: 1px solid $border-color;
+
+}
+
+.l-lapada-logo {
+	width: 100%;
+	padding: 20px 0;
+	border-top: 1px solid $border-color;
+	border-bottom: 1px solid $border-color;
+	text-align: center;
+}
+
+.l-shop-nav {
+	margin-top: 2em;
+}
+
+.main-content {
+	position: relative;
+}
+
+.hor-nav {
+	padding: 0;
+	margin: 0;
+	
+	li {
+		float: left;
+	}
+}

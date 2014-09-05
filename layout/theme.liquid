@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if template == 'index' %}
+        <title>{{ shop.name }} | {{ page_title }}</title>
+    {% elsif template == '404' %}
+        <title>Page Not Found | {{ shop.name }}</title>
+    {% else %}
+        <title>{{ page_title }} | {{ shop.name }}</title>
+    {% endif %}
+
+    {% if page_description %}
+        <meta name="description" content="{{ page_description }}" />
+    {% endif %}
+
+    <link rel="canonical" href="{{ canonical_url }}" />
+    
+    {{ content_for_header }}
+
+    {{ 'main.css' | asset_url | stylesheet_tag }}
+    {{ 'modernizr-2.6.2.min.js' | asset_url | script_tag }}
+</head>
+<body>
+
+    <div class="l-container">
+        <div class="l-sidebar">
+            <div class="l-cart-link cart-link">
+                {% if cart.item_count > 0 %}
+                    <a href="/cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}
+                {% else %}
+                    Cart: No Items
+                {% endif %}
+            </div>
+            <div class="search-box">
+                <form action="/search" method="get" class="search-form" role="search">
+                    <label for="search-field">Search:</label>
+                    <input name="q" type="text" id="search-field" class="search-box-input" />
+                    <input type="hidden" name="type" value="product" />
+                    <input type="submit" id="search-submit" value="Search" class="search-box-submit" />
+                </form>
+            </div>
+            <nav class="l-main-nav">
+                <ul class="main-nav">
+                    {% for link in linklists.main-menu.links %}
+                        <li>
+                            {% unless link.handle == 'shop' %}
+                                <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+                            {% else %}
+
+                                <a href="{{ link.url }}"{% if link.active or template contains 'collection' or template contains 'product' %} class="active"{% endif %}>{{ link.title }}</a>
+                                    {% if template contains 'product' or template contains 'collection' %}
+                                        <ul class="main-nav-shop-nav">
+                                            {% for shop_link in linklists.shop.links %}
+                                                <li>
+                                                    <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                            {% endunless %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <a href="/" class="home-link{% if template == 'index' %} active{% endif %}">Home</a>
+            <div class="l-lapada-logo">
+                <a href="http://www.lapada.org/index.pl?id=2213"><img src="{{ 'lapada_logo.jpg' | asset_url }}"></a>
+            </div>
+        </div>
+        <div class="l-main-section">
+            <header class="l-main-header">
+                <a href="{{ shop.url }}"><img src="{{'logo_large.svg' | asset_url }}" alt="Bell and Bird logo" class="l-main-logo" id="main-logo"></a>
+                <script>
+                    if (!Modernizr.svg) {
+                        var logo = document.getElementById("main-logo");
+                        logo.src = "{{ 'logo_large.png' | asset_url }}";
+                    }
+                </script>
+            </header>
+            <div class="main-content clearfix" role="main">
+                {{ content_for_layout }}
+            </div>
+            <footer class="main-footer clearfix">
+                <div class="footy clearfix">
+                    <hr class="section-div">
+                    <nav class="footer-nav clearfix">
+                        <ul class="hor-nav">
+                            {% for link in linklists.footer.links %}
+                                <li>
+                                    <a href="{{ link.url }}">{{ link.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                <a href="{{ shop.url }}"><img src="{{ 'logo_small.png' | asset_url }}" class="mini-logo"></a>
+            </footer>
+        </div>
+    </div>
+
+        
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ "jquery-1.10.2.min.js" | asset_url }}"><\/script>')</script>
+    {{ 'plugins.js' | asset_url | script_tag }}
+    {{ 'main.js' | asset_url | script_tag }}
+    {% if template contains 'product' %}
+        <script>
+            (function($, window){
+
+                var $productThumbs = $('.product-thmb-link'),
+                    $mainImage     = $('.product-main-image');
+
+
+                $productThumbs.on('click', function(e){
+                    e.preventDefault();
+
+                    var $this = $(this),
+                        earl, alty;
+
+                    earl = $this.attr('href');
+                    alty = $this.find('img').attr('alt');
+                    $mainImage.fadeOut(function(){
+                        $mainImage.attr({
+                                    'src': earl,
+                                    'alt': alty
+                                });
+                                
+                    }).fadeIn();
+                    
+                });
+
+
+
+            })(jQuery, window);
+        </script>
+    {% endif %}
+
+    <script>
+        // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        // e.src='//www.google-analytics.com/analytics.js';
+        // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        // ga('create','UA-23415945-1');ga('send','pageview');
+    </script>
+</body>
+</html>

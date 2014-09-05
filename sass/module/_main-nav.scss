@@ -1,0 +1,29 @@
+.main-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: $alt-font-family;
+	text-transform: uppercase;
+	font-size: 14px;
+
+	li {
+		margin-bottom: .5em;
+	}
+
+	a {
+		text-decoration: none;
+		color: #a5a098;
+		text-transform: uppercase;
+		font-size: 14px;
+		
+		&:hover,
+		&.active {
+			color: #000;
+		}
+	}
+}
+
+.main-nav-shop-nav {
+	margin: 0;
+	padding: 0 0 0 1em;
+}

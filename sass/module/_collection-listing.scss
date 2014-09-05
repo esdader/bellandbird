@@ -1,0 +1,39 @@
+.collection-img {
+	display: table-cell;
+	vertical-align: middle;
+	width: 320px;
+	height: 320px;
+	text-align: center;
+	border-bottom: 1px solid $border-color;
+
+	img {
+		max-width: 320px;
+		max-height: 320px;
+		height: auto;
+		width: auto;
+	}
+}
+
+.collection-title {
+	width: 232px;
+	float: left;
+	padding: 6px 8px 6px 0;
+	border-right: 1px solid $border-color;
+	font-family: $alt-font-family;
+	font-size: 14px;
+	letter-spacing: 1px;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.collection-price {
+	width: 85px;
+	float: right;
+	padding: 6px 0 6px 0;
+	// font-family: $alt-font-family;
+	font-family: $main-font-family;
+	font-size: 14px;
+	line-height: 1.2;
+	text-align: right;
+	text-transform: uppercase;
+}

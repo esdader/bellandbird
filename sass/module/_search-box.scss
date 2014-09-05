@@ -1,0 +1,33 @@
+.search-box {
+	position: absolute;
+	top: 45px;
+	left: 10px;
+
+	label {
+		display: block;
+		font-family: $alt-font-family;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #a5a098;
+	}
+}
+
+.search-box-input {
+	width: 150px;
+	font-family: $alt-font-family;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: #a5a098;
+}
+
+.search-box-submit {
+	font-family: $main-font-family;
+	font-size: 12px;
+	color: #000;
+}
+
+.search-msg {
+	font-size: 12px;
+	line-height: 20 / 12 * 1;
+}

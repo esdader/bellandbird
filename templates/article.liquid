@@ -1,0 +1,22 @@
+<article class="blog-entry">
+    <header class="blog-entry-heady">
+      <h1 class="blog-entry-title">
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </h1>
+      <p class="blog-entry-date">
+      <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
+      </p>
+    </header>
+    {{ article.content }}
+  </article>
+
+{% if blog.next_article or blog.previous_article %}
+<p class="clearfix"> 
+  {% if blog.next_article %}
+  <span class="blog-entry-left">{{ '&larr; Next Post' | link_to: blog.next_article }}</span>
+  {% endif %}    
+  {% if blog.previous_article %}
+  <span class="blog-entry-right">{{ 'Previous Post &rarr;' | link_to: blog.previous_article }}</span>
+  {% endif %}
+</p>
+{% endif %}

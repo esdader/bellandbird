@@ -1,0 +1,42 @@
+.main-footer {
+	padding: 3em 0 6em;
+}
+
+.footy {
+	float: left;
+	width: 707px;
+	margin-top: 1px solid $border-color;
+}
+
+.section-div {
+	margin: 29px 0 12px;
+	border-color: $border-color;
+}
+
+.mini-logo {
+	float: right;
+}
+
+.footer-nav {
+
+	li {
+		font-size: 10px;
+		line-height: 1;
+		margin-right: 3px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+
+		&:before {
+			content: ' / ';
+		}
+	}
+
+	li:first-child {
+		width: 44px;
+	}
+
+	li:first-child:before {
+		content: '';
+	}
+}
+
