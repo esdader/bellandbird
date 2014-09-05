@@ -1,0 +1,15 @@
+.instagram-link {
+	position: absolute;
+	left: 10px;
+	top: 96px;
+	text-decoration: none;
+	font-family: $alt-font-family;
+	color: #a5a098;
+	text-transform: uppercase;
+	font-size: 14px;
+	
+	&:hover,
+	&.active {
+		color: #000;
+	}
+}

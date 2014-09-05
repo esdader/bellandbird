@@ -44,6 +44,7 @@
                     <input type="submit" id="search-submit" value="Search" class="search-box-submit" />
                 </form>
             </div>
+            <a href="http://instagram.com/bellandbird" class="instagram-link">Instagram</a>
             <nav class="l-main-nav">
                 <ul class="main-nav">
                     {% for link in linklists.main-menu.links %}
@@ -74,13 +75,7 @@
         </div>
         <div class="l-main-section">
             <header class="l-main-header">
-                <a href="{{ shop.url }}"><img src="{{'logo_large.svg' | asset_url }}" alt="Bell and Bird logo" class="l-main-logo" id="main-logo"></a>
-                <script>
-                    if (!Modernizr.svg) {
-                        var logo = document.getElementById("main-logo");
-                        logo.src = "{{ 'logo_large.png' | asset_url }}";
-                    }
-                </script>
+                <a href="{{ shop.url }}"><img src="{{'logo_large.svg' | asset_url }}" onerror="this.src='{{ 'logo_large.png' | asset_url }}'" alt="Bell and Bird logo" class="l-main-logo" id="main-logo"></a>
             </header>
             <div class="main-content clearfix" role="main">
                 {{ content_for_layout }}
