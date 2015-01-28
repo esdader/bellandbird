@@ -28,51 +28,44 @@
 <body>
 
     <div class="l-container">
-        <div class="l-sidebar">
-            <div class="l-cart-link cart-link">
-                {% if cart.item_count > 0 %}
-                    <a href="/cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}
-                {% else %}
-                    Cart: No Items
-                {% endif %}
-            </div>
-            <div class="search-box">
-                <form action="/search" method="get" class="search-form" role="search">
-                    <label for="search-field">Search:</label>
-                    <input name="q" type="text" id="search-field" class="search-box-input" />
-                    <input type="hidden" name="type" value="product" />
-                    <input type="submit" id="search-submit" value="Search" class="search-box-submit" />
-                </form>
-            </div>
-            <a href="http://instagram.com/bellandbird" class="instagram-link">Instagram</a>
-            <nav class="l-main-nav">
-                <ul class="main-nav">
-                    {% for link in linklists.new-main-menu.links %}
-                        <li>
-                            {% unless link.handle == 'shop' %}
-                                <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-                            {% else %}
-                                <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-                                    <ul class="main-nav-shop-nav">
-                                        {% for shop_link in linklists.shop.links %}
-                                            <li>
-                                                <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                            {% endunless %}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-            <a href="/" class="home-link{% if template == 'index' %} active{% endif %}">Home</a>
-            <div class="l-lapada-logo">
-                <a href="http://www.lapada.org/index.pl?id=2213"><img src="{{ 'lapada_logo.jpg' | asset_url }}"></a>
-            </div>
-        </div>
         <div class="l-main-section">
             <header class="l-main-header">
                 <a href="{{ shop.url }}"><img src="{{'logo_large.svg' | asset_url }}" onerror="this.src='{{ 'logo_large.png' | asset_url }}'" alt="Bell and Bird logo" class="l-main-logo" id="main-logo"></a>
+                <nav class="l-main-nav">
+                    <ul class="main-nav">
+                        {% for link in linklists.new-main-menu.links %}
+                            <li>
+                                {% unless link.handle == 'shop' %}
+                                    <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+                                {% else %}
+                                    <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+                                        <ul class="main-nav-shop-nav">
+                                            {% for shop_link in linklists.shop.links %}
+                                                <li>
+                                                    <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                {% endunless %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+                <div class="l-cart-link cart-link">
+                    {% if cart.item_count > 0 %}
+                        <a href="/cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}
+                    {% else %}
+                        Cart: No Items
+                    {% endif %}
+                </div>
+                <div class="search-box">
+                    <form action="/search" method="get" class="search-form" role="search">
+                        <label for="search-field">Search:</label>
+                        <input name="q" type="text" id="search-field" class="search-box-input" />
+                        <input type="hidden" name="type" value="product" />
+                        <input type="submit" id="search-submit" value="Search" class="search-box-submit" />
+                    </form>
+                </div>
             </header>
             <div class="main-content clearfix" role="main">
                 {{ content_for_layout }}
