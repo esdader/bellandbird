@@ -34,20 +34,21 @@
                 <nav class="l-main-nav">
                     <ul class="main-nav hor-nav">
                         {% for link in linklists.new-main-menu.links %}
-                            <li>
-                                {% unless link.handle == 'shop' %}
+                            {% unless link.handle == 'shop' %}
+                                <li><a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+                            {% else %}
+                                <li class="has-subnav">
                                     <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-                                {% else %}
-                                    <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-                                        <ul class="main-nav-shop-nav">
-                                            {% for shop_link in linklists.shop.links %}
-                                                <li>
-                                                    <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                {% endunless %}
-                            </li>
+                                    <ul class="main-nav-shop-nav subnav">
+                                        {% for shop_link in linklists.shop.links %}
+                                            <li>
+                                                <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endunless %}
+                            
                         {% endfor %}
                     </ul>
                 </nav>

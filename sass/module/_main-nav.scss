@@ -1,4 +1,5 @@
 .main-nav {
+	display: inline-block;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -7,14 +8,16 @@
 	font-size: 14px;
 
 	li {
-		margin-bottom: .5em;
+		margin: 0 25px;
 	}
 
 	a {
+		padding: 10px;
 		text-decoration: none;
 		color: #a5a098;
 		text-transform: uppercase;
 		font-size: 14px;
+		letter-spacing: 1px;
 		
 		&:hover,
 		&.active {
@@ -24,6 +27,28 @@
 }
 
 .main-nav-shop-nav {
+	position: relative;
 	margin: 0;
 	padding: 0 0 0 1em;
+}
+
+.subnav {
+	position: absolute;
+	z-index: 90;
+	background: $border-color;
+	display: none;
+
+	li {
+		float: none;
+	}
+
+	a {
+		color: #fff;
+	}
+}
+
+.has-subnav:hover {
+	.subnav {
+		display: block;
+	}
 }
