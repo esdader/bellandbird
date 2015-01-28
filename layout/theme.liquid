@@ -47,22 +47,19 @@
             <a href="http://instagram.com/bellandbird" class="instagram-link">Instagram</a>
             <nav class="l-main-nav">
                 <ul class="main-nav">
-                    {% for link in linklists.main-menu.links %}
+                    {% for link in linklists.new-main-menu.links %}
                         <li>
                             {% unless link.handle == 'shop' %}
                                 <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
                             {% else %}
-
-                                <a href="{{ link.url }}"{% if link.active or template contains 'collection' or template contains 'product' %} class="active"{% endif %}>{{ link.title }}</a>
-                                    {% if template contains 'product' or template contains 'collection' %}
-                                        <ul class="main-nav-shop-nav">
-                                            {% for shop_link in linklists.shop.links %}
-                                                <li>
-                                                    <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    {% endif %}
+                                <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+                                    <ul class="main-nav-shop-nav">
+                                        {% for shop_link in linklists.shop.links %}
+                                            <li>
+                                                <a href="{{ shop_link.url }}"{% if collection.handle == shop_link.handle %} class='active'{% endif %}>{{ shop_link.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
                             {% endunless %}
                         </li>
                     {% endfor %}
