@@ -3,22 +3,20 @@
 	margin: 0 auto;
 }
 
-.l-sidebar {
-	position: relative;
-	width: 225px;
-	float: left;
-	margin-right: 50px;
-	padding-bottom: 6em;
-}
+// .l-sidebar {
+// 	position: relative;
+// 	width: 225px;
+// 	float: left;
+// 	margin-right: 50px;
+// 	padding-bottom: 6em;
+// }
 
 .l-main-section {
-	width: 765px;
-	float: left;
+	width: 100%;
 }
 
 .l-main-header {
 	width: 100%;
-	height: 150px;
 	padding: 32px 0 0;
 	border-bottom: 1px solid $border-color;
 }
@@ -33,11 +31,7 @@
 }
 
 .l-main-nav {
-	width: 190px;
-	margin: 96px 0 0 18px;
 	padding: 23px 0 23px 10px;
-	border-top: 1px solid $border-color;
-	border-bottom: 1px solid $border-color;
 
 }
 

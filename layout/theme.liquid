@@ -32,7 +32,7 @@
             <header class="l-main-header">
                 <a href="{{ shop.url }}"><img src="{{'logo_large.svg' | asset_url }}" onerror="this.src='{{ 'logo_large.png' | asset_url }}'" alt="Bell and Bird logo" class="l-main-logo" id="main-logo"></a>
                 <nav class="l-main-nav">
-                    <ul class="main-nav">
+                    <ul class="main-nav hor-nav">
                         {% for link in linklists.new-main-menu.links %}
                             <li>
                                 {% unless link.handle == 'shop' %}
