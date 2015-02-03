@@ -1,7 +1,6 @@
 .search-box {
-	position: absolute;
-	top: 45px;
-	left: 10px;
+
+	border-bottom: 1px solid $border-color;
 
 	label {
 		display: block;
@@ -11,6 +10,22 @@
 		letter-spacing: 1px;
 		color: #a5a098;
 	}
+
+	::-webkit-input-placeholder {
+	   text-transform: uppercase;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   text-transform: uppercase;
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   text-transform: uppercase;
+	}
+
+	:-ms-input-placeholder {  
+	   text-transform: uppercase;
+	}
 }
 
 .search-box-input {
@@ -19,6 +34,7 @@
 	font-size: 12px;
 	letter-spacing: 1px;
 	color: #a5a098;
+	border: none;
 }
 
 .search-box-submit {
@@ -31,3 +47,4 @@
 	font-size: 12px;
 	line-height: 20 / 12 * 1;
 }
+

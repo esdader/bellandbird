@@ -52,21 +52,25 @@
                         {% endfor %}
                     </ul>
                 </nav>
-                <div class="l-cart-link cart-link">
-                    {% if cart.item_count > 0 %}
-                        <a href="/cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}
-                    {% else %}
-                        Cart: No Items
-                    {% endif %}
+                <div class="l-search-cart-con">
+                    <div class="l-cart-link cart-link">
+                        <h3 class="cart-link-title">Cart</h3>
+                        {% if cart.item_count > 0 %}
+                            <a href="/cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}</a>
+                        {% else %}
+                            Cart: No Items
+                        {% endif %}
+                    </div>
+                    <div class="search-box">
+                        <form action="/search" method="get" class="search-form" role="search">
+                            <label for="search-field" class="visuallyhidden">Search:</label>
+                            <input name="q" type="text" id="search-field" class="search-box-input" placeholder="Search" />
+                            <input type="hidden" name="type" value="product" />
+                            <input type="image" id="search-submit" value="Search" class="search-box-submit" src="{{ 'submit_arrow_btn.png' | asset_url }}" />
+                        </form>
+                    </div>
                 </div>
-                <div class="search-box">
-                    <form action="/search" method="get" class="search-form" role="search">
-                        <label for="search-field">Search:</label>
-                        <input name="q" type="text" id="search-field" class="search-box-input" />
-                        <input type="hidden" name="type" value="product" />
-                        <input type="submit" id="search-submit" value="Search" class="search-box-submit" />
-                    </form>
-                </div>
+                
             </header>
             <div class="main-content clearfix" role="main">
                 {{ content_for_layout }}
