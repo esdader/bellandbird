@@ -50,15 +50,22 @@
 }
 
 .main-content {
+	padding-top: 2em;
 	position: relative;
 	padding-left: 137px;
 	padding-right: 137px;
 }
 
 .index .main-content {
+	padding-top: 0;
 	padding-left: 0;
 	padding-right: 0;
 }
+
+.collection .main-content {
+	padding-top: 0;
+}
+
 
 .hor-nav {
 	padding: 0;
