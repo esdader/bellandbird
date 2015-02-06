@@ -51,6 +51,13 @@
 
 .main-content {
 	position: relative;
+	padding-left: 137px;
+	padding-right: 137px;
+}
+
+.index .main-content {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .hor-nav {
